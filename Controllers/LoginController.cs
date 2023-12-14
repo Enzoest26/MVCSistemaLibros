@@ -27,7 +27,7 @@ namespace MVCSistemaLibros.Controllers
         {
             Service1Client service1Client = new Service1Client();
             User user = service1Client.SP_VALIDARACCESO(login.username, login.password);
-            if (user == null)
+            if (user == null || user.idUser < 1)
             {
                 return Json(new { error = "Acceso denegado" }, JsonRequestBehavior.AllowGet);
             }
