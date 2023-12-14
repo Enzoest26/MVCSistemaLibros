@@ -3,6 +3,7 @@ using MVCSistemaLibros.Models;
 using MVCSistemaLibros.ServiceSistemaLibros;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -26,25 +27,27 @@ namespace MVCSistemaLibros.Controllers
         {
             Service1Client service1Client = new Service1Client();
             User user = service1Client.SP_VALIDARACCESO(login.username, login.password);
-            var symmetricKey = Encoding.UTF8.GetBytes(llave_secreta);
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenDescriptor = new SecurityTokenDescriptor
+            if (user == null)
             {
-                Subject = new System.Security.Claims.ClaimsIdentity(new[]
-                {
-                    new Claim(ClaimTypes.Name, login.username)
-                }),
-                Expires = DateTime.UtcNow.AddHours(1),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(symmetricKey), SecurityAlgorithms.HmacSha256Signature)
-            };
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var token2 = tokenHandler.WriteToken(token);
-            if (user.idUser != 0) //No existe
-            {
-                return Json(new { userId = user.idUser, token = token2 }, JsonRequestBehavior.AllowGet);
+                return Json(new { error = "Acceso denegado" }, JsonRequestBehavior.AllowGet);
             }
-            return Json(new { error = "Acceso denegado" }, JsonRequestBehavior.AllowGet);
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim("name", user.varEmail),
+            };
+            var symmetricKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(llave_secreta));
+            
+
+            var cred = new SigningCredentials(symmetricKey, SecurityAlgorithms.HmacSha256Signature);
+            //var cred = new SigningCredentials(symmetricKey, "HS256") --- validar;
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(1),
+                signingCredentials: cred);
+
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+            return Json(new { userId = user.idUser, token = jwt }, JsonRequestBehavior.AllowGet);
+           
         }
     }
 }
