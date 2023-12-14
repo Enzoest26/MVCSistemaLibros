@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFServicioLibreria" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFServicioLibreria" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CompositeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+  <xs:complexType name="ArrayOfDtoLibro">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DtoLibro" nillable="true" type="tns:DtoLibro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDtoLibro" nillable="true" type="tns:ArrayOfDtoLibro" />
+  <xs:complexType name="DtoLibro">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dmeDateReservation" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idBook" type="xs:int" />
+      <xs:element minOccurs="0" name="idItem" type="xs:int" />
+      <xs:element minOccurs="0" name="varStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="varTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DtoLibro" nillable="true" type="tns:DtoLibro" />
+  <xs:complexType name="Reservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bolIsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="dmeDateCreate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dmeDateReservation" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dmeDateUpdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idBook" type="xs:int" />
+      <xs:element minOccurs="0" name="idReservation" type="xs:int" />
+      <xs:element minOccurs="0" name="idUser" type="xs:int" />
+      <xs:element minOccurs="0" name="intStatus" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Reservation" nillable="true" type="tns:Reservation" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bolIsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="dmeDateCreate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dmeDateUpdate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idUser" type="xs:int" />
+      <xs:element minOccurs="0" name="intStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="varEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="varFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="varLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="varPassword" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+</xs:schema>
