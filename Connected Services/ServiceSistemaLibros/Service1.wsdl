@@ -43,6 +43,12 @@
   <wsdl:message name="IService1_SP_VALIDARRESERVA_OutputMessage">
     <wsdl:part name="parameters" element="tns:SP_VALIDARRESERVAResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SP_BUSCARLIBROXCODE_InputMessage">
+    <wsdl:part name="parameters" element="tns:SP_BUSCARLIBROXCODE" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SP_BUSCARLIBROXCODE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SP_BUSCARLIBROXCODEResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -67,6 +73,10 @@
     <wsdl:operation name="SP_VALIDARRESERVA">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_VALIDARRESERVA" message="tns:IService1_SP_VALIDARRESERVA_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_VALIDARRESERVAResponse" message="tns:IService1_SP_VALIDARRESERVA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SP_BUSCARLIBROXCODE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_BUSCARLIBROXCODE" message="tns:IService1_SP_BUSCARLIBROXCODE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_BUSCARLIBROXCODEResponse" message="tns:IService1_SP_BUSCARLIBROXCODE_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -118,6 +128,15 @@
     </wsdl:operation>
     <wsdl:operation name="SP_VALIDARRESERVA">
       <soap:operation soapAction="http://tempuri.org/IService1/SP_VALIDARRESERVA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SP_BUSCARLIBROXCODE">
+      <soap:operation soapAction="http://tempuri.org/IService1/SP_BUSCARLIBROXCODE" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

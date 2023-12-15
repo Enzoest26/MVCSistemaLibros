@@ -5,7 +5,9 @@
     }
 })
 $("#buscar").on('click', function () {
-    $.get("/Reserva/listadoTablaJs", function (data) {
+
+    var formData = $("#form-buscar").serialize();
+    $.get("/Reserva/listadoTablaJs?" + formData, function (data) {
         var contenido = "";
 
 
@@ -13,7 +15,7 @@ $("#buscar").on('click', function () {
             var fechaFormateada = data[i].dmeDateReservation != null ? moment(data[i].dmeDateReservation).format("DD/MM/YYYY HH:mm") : "";
             contenido += "<tr >"
             contenido += "<th>" + data[i].idItem + "</th>"
-            contenido += "<td>" + data[i].idBook + "</td>"
+            contenido += "<td>" + data[i].varCode + "</td>"
             contenido += "<td>" + data[i].varTitle + "</td>"
             contenido += "<td>" + data[i].varStatus + "</td>"
             contenido += "<td>" + fechaFormateada + "</td>"
@@ -33,7 +35,7 @@ $("table tbody").on('click', 'tr', function () {
         data.push($(this).text());
     });
     
-    $.get("/Reserva/validarReservaJs?idLibro=" + data[0], function (data2) {
+    $.get("/Reserva/validarReservaJs?varCode=" + data[0], function (data2) {
         if (data2.resultado === 0) {
             $(titulo).text("Confirmar");
             $(cuerpo).text("¿ESTA SEGURO QUE DESEA RESERVAR ESTE LIBRO: " + data[1] + "?");
@@ -54,7 +56,7 @@ $("#reservar").on("click", function () {
 
     
     dataPost = {
-        idBook: data[0],
+        varCode: data[0],
         idUser: localStorage.getItem("idUser") //Añadir el local storage
     }
     $.post("/Reserva/registrarReserva", dataPost, function (data3) {

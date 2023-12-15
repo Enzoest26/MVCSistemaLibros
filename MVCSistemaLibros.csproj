@@ -176,12 +176,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DtoReserva.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceSistemaLibros\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceSistemaLibros\configuration.svcinfo" />
+    <Content Include="Connected Services\ServiceSistemaLibros\MVCSistemaLibros.ServiceSistemaLibros.Book.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\ServiceSistemaLibros\MVCSistemaLibros.ServiceSistemaLibros.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>

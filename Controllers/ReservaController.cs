@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Net.Http;
+using MVCSistemaLibros.Models;
 
 namespace MVCSistemaLibros.Controllers
 {
@@ -16,33 +17,38 @@ namespace MVCSistemaLibros.Controllers
             return View();
         }
 
-        public JsonResult listadoTablaJs()
+        public JsonResult listadoTablaJs(string varCode)
         {
             Service1Client service1Client = new Service1Client();
-            DtoLibro[] lstLibrosDto = service1Client.SP_LISTARVISTALIBROS();
+            DtoLibro[] lstLibrosDto = service1Client.SP_LISTARVISTALIBROS(varCode);
             return Json(lstLibrosDto, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult validarReservaJs(int idLibro)
+        public JsonResult validarReservaJs(string varCode)
         {
             Service1Client service1Client = new Service1Client();
-            int validar = service1Client.SP_VALIDARRESERVA(idLibro);
+            int validar = service1Client.SP_VALIDARRESERVA(varCode);
             return Json(new { resultado = validar }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public JsonResult registrarReserva(Reservation reservation)
+        public JsonResult registrarReserva(DtoReserva dtoReserva)
         {
             try
             {
                 Service1Client service1Client = new Service1Client();
-                int validar = service1Client.SP_VALIDARRESERVA(reservation.idBook);
+                int validar = service1Client.SP_VALIDARRESERVA(dtoReserva.varCode);
+                
+                Reservation reservation = new Reservation();
                 if(validar == 0)
                 {
+                    Book book = service1Client.SP_BUSCARLIBROXCODE(dtoReserva.varCode);
                     reservation.dmeDateReservation = DateTime.Now;
                     reservation.dmeDateCreate = DateTime.Now;
                     reservation.bolIsActive = true;
                     reservation.intStatus = 1;
+                    reservation.idUser = dtoReserva.idUser;
+                    reservation.idBook = book.idBook;
                     service1Client.SP_RESERVARLIBRO(reservation);
                 }
                 else

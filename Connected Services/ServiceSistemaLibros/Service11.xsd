@@ -31,7 +31,9 @@
   </xs:element>
   <xs:element name="SP_LISTARVISTALIBROS">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SP_LISTARVISTALIBROSResponse">
@@ -71,7 +73,7 @@
   <xs:element name="SP_VALIDARRESERVA">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idLibro" type="xs:int" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -79,6 +81,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="SP_VALIDARRESERVAResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SP_BUSCARLIBROXCODE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SP_BUSCARLIBROXCODEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCFServicioLibreria" minOccurs="0" name="SP_BUSCARLIBROXCODEResult" nillable="true" type="q6:Book" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

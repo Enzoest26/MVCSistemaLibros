@@ -87,10 +87,10 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
         private System.Nullable<System.DateTime> dmeDateReservationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idBookField;
+        private int idItemField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idItemField;
+        private string varCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string varStatusField;
@@ -122,19 +122,6 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int idBook {
-            get {
-                return this.idBookField;
-            }
-            set {
-                if ((this.idBookField.Equals(value) != true)) {
-                    this.idBookField = value;
-                    this.RaisePropertyChanged("idBook");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int idItem {
             get {
                 return this.idItemField;
@@ -143,6 +130,19 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
                 if ((this.idItemField.Equals(value) != true)) {
                     this.idItemField = value;
                     this.RaisePropertyChanged("idItem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string varCode {
+            get {
+                return this.varCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.varCodeField, value) != true)) {
+                    this.varCodeField = value;
+                    this.RaisePropertyChanged("varCode");
                 }
             }
         }
@@ -513,6 +513,163 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Book", Namespace="http://schemas.datacontract.org/2004/07/WCFServicioLibreria")]
+    [System.SerializableAttribute()]
+    public partial class Book : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool bolIsActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool bolIsReservatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime dmeDateCreateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> dmeDateUpdateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idBookField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int intStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string varCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string varTitleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool bolIsActive {
+            get {
+                return this.bolIsActiveField;
+            }
+            set {
+                if ((this.bolIsActiveField.Equals(value) != true)) {
+                    this.bolIsActiveField = value;
+                    this.RaisePropertyChanged("bolIsActive");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool bolIsReservated {
+            get {
+                return this.bolIsReservatedField;
+            }
+            set {
+                if ((this.bolIsReservatedField.Equals(value) != true)) {
+                    this.bolIsReservatedField = value;
+                    this.RaisePropertyChanged("bolIsReservated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime dmeDateCreate {
+            get {
+                return this.dmeDateCreateField;
+            }
+            set {
+                if ((this.dmeDateCreateField.Equals(value) != true)) {
+                    this.dmeDateCreateField = value;
+                    this.RaisePropertyChanged("dmeDateCreate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> dmeDateUpdate {
+            get {
+                return this.dmeDateUpdateField;
+            }
+            set {
+                if ((this.dmeDateUpdateField.Equals(value) != true)) {
+                    this.dmeDateUpdateField = value;
+                    this.RaisePropertyChanged("dmeDateUpdate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idBook {
+            get {
+                return this.idBookField;
+            }
+            set {
+                if ((this.idBookField.Equals(value) != true)) {
+                    this.idBookField = value;
+                    this.RaisePropertyChanged("idBook");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int intStatus {
+            get {
+                return this.intStatusField;
+            }
+            set {
+                if ((this.intStatusField.Equals(value) != true)) {
+                    this.intStatusField = value;
+                    this.RaisePropertyChanged("intStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string varCode {
+            get {
+                return this.varCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.varCodeField, value) != true)) {
+                    this.varCodeField = value;
+                    this.RaisePropertyChanged("varCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string varTitle {
+            get {
+                return this.varTitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.varTitleField, value) != true)) {
+                    this.varTitleField = value;
+                    this.RaisePropertyChanged("varTitle");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceSistemaLibros.IService1")]
     public interface IService1 {
@@ -530,10 +687,10 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
         System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.CompositeType> GetDataUsingDataContractAsync(MVCSistemaLibros.ServiceSistemaLibros.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_LISTARVISTALIBROS", ReplyAction="http://tempuri.org/IService1/SP_LISTARVISTALIBROSResponse")]
-        MVCSistemaLibros.ServiceSistemaLibros.DtoLibro[] SP_LISTARVISTALIBROS();
+        MVCSistemaLibros.ServiceSistemaLibros.DtoLibro[] SP_LISTARVISTALIBROS(string code);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_LISTARVISTALIBROS", ReplyAction="http://tempuri.org/IService1/SP_LISTARVISTALIBROSResponse")]
-        System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.DtoLibro[]> SP_LISTARVISTALIBROSAsync();
+        System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.DtoLibro[]> SP_LISTARVISTALIBROSAsync(string code);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_RESERVARLIBRO", ReplyAction="http://tempuri.org/IService1/SP_RESERVARLIBROResponse")]
         void SP_RESERVARLIBRO(MVCSistemaLibros.ServiceSistemaLibros.Reservation reservation);
@@ -548,10 +705,16 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
         System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.User> SP_VALIDARACCESOAsync(string email, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARRESERVA", ReplyAction="http://tempuri.org/IService1/SP_VALIDARRESERVAResponse")]
-        int SP_VALIDARRESERVA(int idLibro);
+        int SP_VALIDARRESERVA(string code);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARRESERVA", ReplyAction="http://tempuri.org/IService1/SP_VALIDARRESERVAResponse")]
-        System.Threading.Tasks.Task<int> SP_VALIDARRESERVAAsync(int idLibro);
+        System.Threading.Tasks.Task<int> SP_VALIDARRESERVAAsync(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_BUSCARLIBROXCODE", ReplyAction="http://tempuri.org/IService1/SP_BUSCARLIBROXCODEResponse")]
+        MVCSistemaLibros.ServiceSistemaLibros.Book SP_BUSCARLIBROXCODE(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_BUSCARLIBROXCODE", ReplyAction="http://tempuri.org/IService1/SP_BUSCARLIBROXCODEResponse")]
+        System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.Book> SP_BUSCARLIBROXCODEAsync(string code);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -597,12 +760,12 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public MVCSistemaLibros.ServiceSistemaLibros.DtoLibro[] SP_LISTARVISTALIBROS() {
-            return base.Channel.SP_LISTARVISTALIBROS();
+        public MVCSistemaLibros.ServiceSistemaLibros.DtoLibro[] SP_LISTARVISTALIBROS(string code) {
+            return base.Channel.SP_LISTARVISTALIBROS(code);
         }
         
-        public System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.DtoLibro[]> SP_LISTARVISTALIBROSAsync() {
-            return base.Channel.SP_LISTARVISTALIBROSAsync();
+        public System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.DtoLibro[]> SP_LISTARVISTALIBROSAsync(string code) {
+            return base.Channel.SP_LISTARVISTALIBROSAsync(code);
         }
         
         public void SP_RESERVARLIBRO(MVCSistemaLibros.ServiceSistemaLibros.Reservation reservation) {
@@ -621,12 +784,20 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
             return base.Channel.SP_VALIDARACCESOAsync(email, password);
         }
         
-        public int SP_VALIDARRESERVA(int idLibro) {
-            return base.Channel.SP_VALIDARRESERVA(idLibro);
+        public int SP_VALIDARRESERVA(string code) {
+            return base.Channel.SP_VALIDARRESERVA(code);
         }
         
-        public System.Threading.Tasks.Task<int> SP_VALIDARRESERVAAsync(int idLibro) {
-            return base.Channel.SP_VALIDARRESERVAAsync(idLibro);
+        public System.Threading.Tasks.Task<int> SP_VALIDARRESERVAAsync(string code) {
+            return base.Channel.SP_VALIDARRESERVAAsync(code);
+        }
+        
+        public MVCSistemaLibros.ServiceSistemaLibros.Book SP_BUSCARLIBROXCODE(string code) {
+            return base.Channel.SP_BUSCARLIBROXCODE(code);
+        }
+        
+        public System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.Book> SP_BUSCARLIBROXCODEAsync(string code) {
+            return base.Channel.SP_BUSCARLIBROXCODEAsync(code);
         }
     }
 }

@@ -16,8 +16,8 @@
   <xs:complexType name="DtoLibro">
     <xs:sequence>
       <xs:element minOccurs="0" name="dmeDateReservation" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="idBook" type="xs:int" />
       <xs:element minOccurs="0" name="idItem" type="xs:int" />
+      <xs:element minOccurs="0" name="varCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="varStatus" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="varTitle" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -50,4 +50,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="Book">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bolIsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="bolIsReservated" type="xs:boolean" />
+      <xs:element minOccurs="0" name="dmeDateCreate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dmeDateUpdate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idBook" type="xs:int" />
+      <xs:element minOccurs="0" name="intStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="varCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="varTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Book" nillable="true" type="tns:Book" />
 </xs:schema>
