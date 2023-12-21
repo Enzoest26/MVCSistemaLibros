@@ -31,11 +31,11 @@
   <wsdl:message name="IService1_SP_RESERVARLIBRO_OutputMessage">
     <wsdl:part name="parameters" element="tns:SP_RESERVARLIBROResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_SP_VALIDARACCESO_InputMessage">
-    <wsdl:part name="parameters" element="tns:SP_VALIDARACCESO" />
+  <wsdl:message name="IService1_SP_OBTENERUSUARIOXEMAIL_InputMessage">
+    <wsdl:part name="parameters" element="tns:SP_OBTENERUSUARIOXEMAIL" />
   </wsdl:message>
-  <wsdl:message name="IService1_SP_VALIDARACCESO_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SP_VALIDARACCESOResponse" />
+  <wsdl:message name="IService1_SP_OBTENERUSUARIOXEMAIL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SP_OBTENERUSUARIOXEMAILResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_SP_VALIDARRESERVA_InputMessage">
     <wsdl:part name="parameters" element="tns:SP_VALIDARRESERVA" />
@@ -66,9 +66,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_RESERVARLIBRO" message="tns:IService1_SP_RESERVARLIBRO_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_RESERVARLIBROResponse" message="tns:IService1_SP_RESERVARLIBRO_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SP_VALIDARACCESO">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_VALIDARACCESO" message="tns:IService1_SP_VALIDARACCESO_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_VALIDARACCESOResponse" message="tns:IService1_SP_VALIDARACCESO_OutputMessage" />
+    <wsdl:operation name="SP_OBTENERUSUARIOXEMAIL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_OBTENERUSUARIOXEMAIL" message="tns:IService1_SP_OBTENERUSUARIOXEMAIL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_OBTENERUSUARIOXEMAILResponse" message="tns:IService1_SP_OBTENERUSUARIOXEMAIL_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SP_VALIDARRESERVA">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_VALIDARRESERVA" message="tns:IService1_SP_VALIDARRESERVA_InputMessage" />
@@ -117,8 +117,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SP_VALIDARACCESO">
-      <soap:operation soapAction="http://tempuri.org/IService1/SP_VALIDARACCESO" style="document" />
+    <wsdl:operation name="SP_OBTENERUSUARIOXEMAIL">
+      <soap:operation soapAction="http://tempuri.org/IService1/SP_OBTENERUSUARIOXEMAIL" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

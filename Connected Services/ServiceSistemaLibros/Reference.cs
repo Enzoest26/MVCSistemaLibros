@@ -698,11 +698,11 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_RESERVARLIBRO", ReplyAction="http://tempuri.org/IService1/SP_RESERVARLIBROResponse")]
         System.Threading.Tasks.Task SP_RESERVARLIBROAsync(MVCSistemaLibros.ServiceSistemaLibros.Reservation reservation);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARACCESO", ReplyAction="http://tempuri.org/IService1/SP_VALIDARACCESOResponse")]
-        MVCSistemaLibros.ServiceSistemaLibros.User SP_VALIDARACCESO(string email, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_OBTENERUSUARIOXEMAIL", ReplyAction="http://tempuri.org/IService1/SP_OBTENERUSUARIOXEMAILResponse")]
+        MVCSistemaLibros.ServiceSistemaLibros.User SP_OBTENERUSUARIOXEMAIL(string email);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARACCESO", ReplyAction="http://tempuri.org/IService1/SP_VALIDARACCESOResponse")]
-        System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.User> SP_VALIDARACCESOAsync(string email, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_OBTENERUSUARIOXEMAIL", ReplyAction="http://tempuri.org/IService1/SP_OBTENERUSUARIOXEMAILResponse")]
+        System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.User> SP_OBTENERUSUARIOXEMAILAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARRESERVA", ReplyAction="http://tempuri.org/IService1/SP_VALIDARRESERVAResponse")]
         int SP_VALIDARRESERVA(string code);
@@ -776,12 +776,12 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
             return base.Channel.SP_RESERVARLIBROAsync(reservation);
         }
         
-        public MVCSistemaLibros.ServiceSistemaLibros.User SP_VALIDARACCESO(string email, string password) {
-            return base.Channel.SP_VALIDARACCESO(email, password);
+        public MVCSistemaLibros.ServiceSistemaLibros.User SP_OBTENERUSUARIOXEMAIL(string email) {
+            return base.Channel.SP_OBTENERUSUARIOXEMAIL(email);
         }
         
-        public System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.User> SP_VALIDARACCESOAsync(string email, string password) {
-            return base.Channel.SP_VALIDARACCESOAsync(email, password);
+        public System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.User> SP_OBTENERUSUARIOXEMAILAsync(string email) {
+            return base.Channel.SP_OBTENERUSUARIOXEMAILAsync(email);
         }
         
         public int SP_VALIDARRESERVA(string code) {

@@ -26,11 +26,12 @@ namespace MVCSistemaLibros.Controllers
         public JsonResult login(Login login)
         {
             Service1Client service1Client = new Service1Client();
-            User user = service1Client.SP_VALIDARACCESO(login.username, login.password);
-            if (user == null || user.idUser < 1)
+            User user = service1Client.SP_OBTENERUSUARIOXEMAIL(login.username);
+            if (user == null || user.idUser < 1 || !user.varPassword.Equals(login.password))
             {
                 return Json(new { error = "Acceso denegado" }, JsonRequestBehavior.AllowGet);
             }
+
             List<Claim> claims = new List<Claim>
             {
                 new Claim("name", user.varEmail),
