@@ -63,4 +63,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Book" nillable="true" type="tns:Book" />
+  <xs:complexType name="ArrayOfMensajeNotificacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MensajeNotificacion" nillable="true" type="tns:MensajeNotificacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMensajeNotificacion" nillable="true" type="tns:ArrayOfMensajeNotificacion" />
+  <xs:complexType name="MensajeNotificacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="varDescription" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MensajeNotificacion" nillable="true" type="tns:MensajeNotificacion" />
 </xs:schema>

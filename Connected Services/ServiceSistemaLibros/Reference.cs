@@ -670,6 +670,51 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MensajeNotificacion", Namespace="http://schemas.datacontract.org/2004/07/WCFServicioLibreria")]
+    [System.SerializableAttribute()]
+    public partial class MensajeNotificacion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string varDescriptionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string varDescription {
+            get {
+                return this.varDescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.varDescriptionField, value) != true)) {
+                    this.varDescriptionField = value;
+                    this.RaisePropertyChanged("varDescription");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceSistemaLibros.IService1")]
     public interface IService1 {
@@ -704,17 +749,41 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_OBTENERUSUARIOXEMAIL", ReplyAction="http://tempuri.org/IService1/SP_OBTENERUSUARIOXEMAILResponse")]
         System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.User> SP_OBTENERUSUARIOXEMAILAsync(string email);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARRESERVA", ReplyAction="http://tempuri.org/IService1/SP_VALIDARRESERVAResponse")]
-        int SP_VALIDARRESERVA(string code);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARRESERVAXLIBRO", ReplyAction="http://tempuri.org/IService1/SP_VALIDARRESERVAXLIBROResponse")]
+        int SP_VALIDARRESERVAXLIBRO(string code);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARRESERVA", ReplyAction="http://tempuri.org/IService1/SP_VALIDARRESERVAResponse")]
-        System.Threading.Tasks.Task<int> SP_VALIDARRESERVAAsync(string code);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARRESERVAXLIBRO", ReplyAction="http://tempuri.org/IService1/SP_VALIDARRESERVAXLIBROResponse")]
+        System.Threading.Tasks.Task<int> SP_VALIDARRESERVAXLIBROAsync(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARRESERVAXUSUARIOXLIBRO", ReplyAction="http://tempuri.org/IService1/SP_VALIDARRESERVAXUSUARIOXLIBROResponse")]
+        int SP_VALIDARRESERVAXUSUARIOXLIBRO(int idUser, string varCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARRESERVAXUSUARIOXLIBRO", ReplyAction="http://tempuri.org/IService1/SP_VALIDARRESERVAXUSUARIOXLIBROResponse")]
+        System.Threading.Tasks.Task<int> SP_VALIDARRESERVAXUSUARIOXLIBROAsync(int idUser, string varCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_BUSCARLIBROXCODE", ReplyAction="http://tempuri.org/IService1/SP_BUSCARLIBROXCODEResponse")]
         MVCSistemaLibros.ServiceSistemaLibros.Book SP_BUSCARLIBROXCODE(string code);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_BUSCARLIBROXCODE", ReplyAction="http://tempuri.org/IService1/SP_BUSCARLIBROXCODEResponse")]
         System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.Book> SP_BUSCARLIBROXCODEAsync(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_RESERVARCOLA", ReplyAction="http://tempuri.org/IService1/SP_RESERVARCOLAResponse")]
+        void SP_RESERVARCOLA(int idUser, int idBook);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_RESERVARCOLA", ReplyAction="http://tempuri.org/IService1/SP_RESERVARCOLAResponse")]
+        System.Threading.Tasks.Task SP_RESERVARCOLAAsync(int idUser, int idBook);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARCOLA", ReplyAction="http://tempuri.org/IService1/SP_VALIDARCOLAResponse")]
+        int SP_VALIDARCOLA(int idUser, int idBook);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_VALIDARCOLA", ReplyAction="http://tempuri.org/IService1/SP_VALIDARCOLAResponse")]
+        System.Threading.Tasks.Task<int> SP_VALIDARCOLAAsync(int idUser, int idBook);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_LISTARNOTIFICACIONESXUSUARIO", ReplyAction="http://tempuri.org/IService1/SP_LISTARNOTIFICACIONESXUSUARIOResponse")]
+        MVCSistemaLibros.ServiceSistemaLibros.MensajeNotificacion[] SP_LISTARNOTIFICACIONESXUSUARIO(int idUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SP_LISTARNOTIFICACIONESXUSUARIO", ReplyAction="http://tempuri.org/IService1/SP_LISTARNOTIFICACIONESXUSUARIOResponse")]
+        System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.MensajeNotificacion[]> SP_LISTARNOTIFICACIONESXUSUARIOAsync(int idUser);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -784,12 +853,20 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
             return base.Channel.SP_OBTENERUSUARIOXEMAILAsync(email);
         }
         
-        public int SP_VALIDARRESERVA(string code) {
-            return base.Channel.SP_VALIDARRESERVA(code);
+        public int SP_VALIDARRESERVAXLIBRO(string code) {
+            return base.Channel.SP_VALIDARRESERVAXLIBRO(code);
         }
         
-        public System.Threading.Tasks.Task<int> SP_VALIDARRESERVAAsync(string code) {
-            return base.Channel.SP_VALIDARRESERVAAsync(code);
+        public System.Threading.Tasks.Task<int> SP_VALIDARRESERVAXLIBROAsync(string code) {
+            return base.Channel.SP_VALIDARRESERVAXLIBROAsync(code);
+        }
+        
+        public int SP_VALIDARRESERVAXUSUARIOXLIBRO(int idUser, string varCode) {
+            return base.Channel.SP_VALIDARRESERVAXUSUARIOXLIBRO(idUser, varCode);
+        }
+        
+        public System.Threading.Tasks.Task<int> SP_VALIDARRESERVAXUSUARIOXLIBROAsync(int idUser, string varCode) {
+            return base.Channel.SP_VALIDARRESERVAXUSUARIOXLIBROAsync(idUser, varCode);
         }
         
         public MVCSistemaLibros.ServiceSistemaLibros.Book SP_BUSCARLIBROXCODE(string code) {
@@ -798,6 +875,30 @@ namespace MVCSistemaLibros.ServiceSistemaLibros {
         
         public System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.Book> SP_BUSCARLIBROXCODEAsync(string code) {
             return base.Channel.SP_BUSCARLIBROXCODEAsync(code);
+        }
+        
+        public void SP_RESERVARCOLA(int idUser, int idBook) {
+            base.Channel.SP_RESERVARCOLA(idUser, idBook);
+        }
+        
+        public System.Threading.Tasks.Task SP_RESERVARCOLAAsync(int idUser, int idBook) {
+            return base.Channel.SP_RESERVARCOLAAsync(idUser, idBook);
+        }
+        
+        public int SP_VALIDARCOLA(int idUser, int idBook) {
+            return base.Channel.SP_VALIDARCOLA(idUser, idBook);
+        }
+        
+        public System.Threading.Tasks.Task<int> SP_VALIDARCOLAAsync(int idUser, int idBook) {
+            return base.Channel.SP_VALIDARCOLAAsync(idUser, idBook);
+        }
+        
+        public MVCSistemaLibros.ServiceSistemaLibros.MensajeNotificacion[] SP_LISTARNOTIFICACIONESXUSUARIO(int idUser) {
+            return base.Channel.SP_LISTARNOTIFICACIONESXUSUARIO(idUser);
+        }
+        
+        public System.Threading.Tasks.Task<MVCSistemaLibros.ServiceSistemaLibros.MensajeNotificacion[]> SP_LISTARNOTIFICACIONESXUSUARIOAsync(int idUser) {
+            return base.Channel.SP_LISTARNOTIFICACIONESXUSUARIOAsync(idUser);
         }
     }
 }

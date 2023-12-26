@@ -27,7 +27,12 @@ namespace MVCSistemaLibros.Controllers
         public JsonResult validarReservaJs(string varCode)
         {
             Service1Client service1Client = new Service1Client();
-            int validar = service1Client.SP_VALIDARRESERVA(varCode);
+            int validar = service1Client.SP_VALIDARRESERVAXLIBRO(varCode);
+            /*
+            if (validar > 0) 
+            {
+                if (service1Client.SP_VALIDARRESERVAXUSUARIOXLIBRO((int)Session["idUser"], varCode) == 0) validar = 2;
+            }    */
             return Json(new { resultado = validar }, JsonRequestBehavior.AllowGet);
         }
 
@@ -37,12 +42,13 @@ namespace MVCSistemaLibros.Controllers
             try
             {
                 Service1Client service1Client = new Service1Client();
-                int validar = service1Client.SP_VALIDARRESERVA(dtoReserva.varCode);
-                
+                int validar = service1Client.SP_VALIDARRESERVAXLIBRO(dtoReserva.varCode);
+                Book book = service1Client.SP_BUSCARLIBROXCODE(dtoReserva.varCode);
                 Reservation reservation = new Reservation();
-                if(validar == 0)
+                if (validar == 0)
                 {
-                    Book book = service1Client.SP_BUSCARLIBROXCODE(dtoReserva.varCode);
+                    //Reserva normal
+                    
                     reservation.dmeDateReservation = DateTime.Now;
                     reservation.dmeDateCreate = DateTime.Now;
                     reservation.bolIsActive = true;
@@ -53,7 +59,30 @@ namespace MVCSistemaLibros.Controllers
                 }
                 else
                 {
-                    return Json(new { resultado = "NO ES POSIBLE RESERVAR EL LIBRO TITULO DEL LIBRO, YA HA SIDO RESERVADO" }, JsonRequestBehavior.AllowGet);
+                    validar = service1Client.SP_VALIDARRESERVAXUSUARIOXLIBRO((int)Session["idUser"], dtoReserva.varCode); //Si la reserva es del usuario actual 
+                    if (validar == 0)
+                    {
+                        validar = service1Client.SP_VALIDARCOLA((int)Session["idUser"], book.idBook);
+                        if(validar == 0) //SI NO HAY EXISTE COLA DEL LIBRO CON EL USUARIO Y EL LIBRO
+                        {
+                            service1Client.SP_RESERVARCOLA((int)Session["idUser"], book.idBook);
+                            return Json(new { resultado = "USTED SE ENCUENTRA EN LA LISTA DE ESPERA" }, JsonRequestBehavior.AllowGet);
+                        }
+                        else if(validar >= 3) //SI SUPERA MAS DE 3 EN COLA POR UN LIBRO
+                        {
+                            return Json(new { resultado = "NO SE PUEDE RESERVAR EL LIBRO, NUMERO DE RESERVAS EXCEDIDOS" }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            //SI EL USUARIO ESTA EN COLA DEL LIBRO ACTUAL
+                            return Json(new { resultado = "USTED SE ENCUENTRA EN LA LISTA DE ESPERA, POR FAVOR ESPERAR SU LIBERACION" }, JsonRequestBehavior.AllowGet);
+                        }
+                    }
+                    else
+                    {
+                        return Json(new { resultado = "NO ES POSIBLE RESERVAR EL LIBRO TITULO DEL LIBRO, YA HA SIDO RESERVADO POR USTED" }, JsonRequestBehavior.AllowGet);
+                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -63,5 +92,14 @@ namespace MVCSistemaLibros.Controllers
 
             return Json(new { resultado = 1 }, JsonRequestBehavior.AllowGet);
         }
+
+
+        public JsonResult listarNotificaciones()
+        { 
+            Service1Client service1Client = new Service1Client();
+            MensajeNotificacion[] listadoNotificaciones = service1Client.SP_LISTARNOTIFICACIONESXUSUARIO((int)Session["idUser"]);
+            return Json(listadoNotificaciones, JsonRequestBehavior.AllowGet);
+        }
     }
+
 }

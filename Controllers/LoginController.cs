@@ -47,6 +47,8 @@ namespace MVCSistemaLibros.Controllers
                 signingCredentials: cred);
 
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+            Session["idUser"] = user.idUser;
+            Session["token"] = jwt;
             return Json(new { userId = user.idUser, token = jwt }, JsonRequestBehavior.AllowGet);
            
         }

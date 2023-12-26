@@ -29,7 +29,7 @@ $("#buscar").on('click', function () {
 var data = [];
 var titulo = $("#titulo-modal");
 var cuerpo = $("#cuerpo-modal");
-$("table tbody").on('click', 'tr', function () {
+$("#tabla-libros tbody").on('click', 'tr', function () {
     data = [];
     $(this).find('td').each(function () {
         data.push($(this).text());
@@ -42,19 +42,15 @@ $("table tbody").on('click', 'tr', function () {
             $("#modalConfirmacion").find(".modal-footer button").removeClass("d-none");
             $("#modalConfirmacion").modal("show");
         } else {
-            $(titulo).text("Error");
-            $(cuerpo).text("NO ES POSIBLE RESERVAR EL LIBRO TITULO DEL LIBRO.");
-            //$("#buscar").trigger("click");
-            $("#modalConfirmacion").find(".modal-footer button").addClass("d-none");
-            $("#modalConfirmacion").modal("show");
+            registrarReserva();
         }
     })
 });
 
-$("#reservar").on("click", function () {
+function registrarReserva() {
     var dataPost = {};
 
-    
+
     dataPost = {
         varCode: data[0],
         idUser: localStorage.getItem("idUser") //Añadir el local storage
@@ -70,8 +66,13 @@ $("#reservar").on("click", function () {
         else {
             cerrarModal();
         }
+        listarNotificaciones();
         $("#buscar").trigger("click");
     })
+}
+
+$("#reservar").on("click", function () {
+    registrarReserva();
 });
 
 function cerrarModal() {
@@ -82,7 +83,41 @@ $("#cerrar").on("click", function () {
     cerrarModal();
 })
 
+function listarNotificaciones() {
+    $.get("/Reserva/listarNotificaciones", function (data) {
+        var contenido = "";
+        var nroElementos = 0;
+
+        if (data.length != 0) {
+
+            for (var i = 0; i < data.length; i++) {
+                nroElementos++;
+                contenido += "<tr>";
+                contenido += "<td>" + data[i].varDescription + "</td>";
+                contenido += "</tr>";
+            }       
+        } else {
+            contenido += "<tr>";
+            contenido += "<td>" + "No tiene reservas o pedidos pendientes." + "</td>";
+            contenido += "</tr>";
+        }
+        document.getElementById("body-notificacion").innerHTML = contenido;
+        document.getElementById("nro-notificacion").innerHTML = nroElementos;
+    });
+}
+
+listarNotificaciones();
 
 
+$("#mostrar-notificacion").on('click', function () {
+    listarNotificaciones();
+    $("#modalNotificaciones").modal("show");
+})
 
+$("#cerrar-notificacion").on("click", function () {
+    cerrarModalNotificacion();
+})
 
+function cerrarModalNotificacion() {
+    $("#modalNotificaciones").modal("hide");
+}

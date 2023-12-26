@@ -37,17 +37,41 @@
   <wsdl:message name="IService1_SP_OBTENERUSUARIOXEMAIL_OutputMessage">
     <wsdl:part name="parameters" element="tns:SP_OBTENERUSUARIOXEMAILResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_SP_VALIDARRESERVA_InputMessage">
-    <wsdl:part name="parameters" element="tns:SP_VALIDARRESERVA" />
+  <wsdl:message name="IService1_SP_VALIDARRESERVAXLIBRO_InputMessage">
+    <wsdl:part name="parameters" element="tns:SP_VALIDARRESERVAXLIBRO" />
   </wsdl:message>
-  <wsdl:message name="IService1_SP_VALIDARRESERVA_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SP_VALIDARRESERVAResponse" />
+  <wsdl:message name="IService1_SP_VALIDARRESERVAXLIBRO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SP_VALIDARRESERVAXLIBROResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SP_VALIDARRESERVAXUSUARIOXLIBRO_InputMessage">
+    <wsdl:part name="parameters" element="tns:SP_VALIDARRESERVAXUSUARIOXLIBRO" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SP_VALIDARRESERVAXUSUARIOXLIBRO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SP_VALIDARRESERVAXUSUARIOXLIBROResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_SP_BUSCARLIBROXCODE_InputMessage">
     <wsdl:part name="parameters" element="tns:SP_BUSCARLIBROXCODE" />
   </wsdl:message>
   <wsdl:message name="IService1_SP_BUSCARLIBROXCODE_OutputMessage">
     <wsdl:part name="parameters" element="tns:SP_BUSCARLIBROXCODEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SP_RESERVARCOLA_InputMessage">
+    <wsdl:part name="parameters" element="tns:SP_RESERVARCOLA" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SP_RESERVARCOLA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SP_RESERVARCOLAResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SP_VALIDARCOLA_InputMessage">
+    <wsdl:part name="parameters" element="tns:SP_VALIDARCOLA" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SP_VALIDARCOLA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SP_VALIDARCOLAResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SP_LISTARNOTIFICACIONESXUSUARIO_InputMessage">
+    <wsdl:part name="parameters" element="tns:SP_LISTARNOTIFICACIONESXUSUARIO" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SP_LISTARNOTIFICACIONESXUSUARIO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SP_LISTARNOTIFICACIONESXUSUARIOResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
@@ -70,13 +94,29 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_OBTENERUSUARIOXEMAIL" message="tns:IService1_SP_OBTENERUSUARIOXEMAIL_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_OBTENERUSUARIOXEMAILResponse" message="tns:IService1_SP_OBTENERUSUARIOXEMAIL_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SP_VALIDARRESERVA">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_VALIDARRESERVA" message="tns:IService1_SP_VALIDARRESERVA_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_VALIDARRESERVAResponse" message="tns:IService1_SP_VALIDARRESERVA_OutputMessage" />
+    <wsdl:operation name="SP_VALIDARRESERVAXLIBRO">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_VALIDARRESERVAXLIBRO" message="tns:IService1_SP_VALIDARRESERVAXLIBRO_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_VALIDARRESERVAXLIBROResponse" message="tns:IService1_SP_VALIDARRESERVAXLIBRO_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SP_VALIDARRESERVAXUSUARIOXLIBRO">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_VALIDARRESERVAXUSUARIOXLIBRO" message="tns:IService1_SP_VALIDARRESERVAXUSUARIOXLIBRO_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_VALIDARRESERVAXUSUARIOXLIBROResponse" message="tns:IService1_SP_VALIDARRESERVAXUSUARIOXLIBRO_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SP_BUSCARLIBROXCODE">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_BUSCARLIBROXCODE" message="tns:IService1_SP_BUSCARLIBROXCODE_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_BUSCARLIBROXCODEResponse" message="tns:IService1_SP_BUSCARLIBROXCODE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SP_RESERVARCOLA">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_RESERVARCOLA" message="tns:IService1_SP_RESERVARCOLA_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_RESERVARCOLAResponse" message="tns:IService1_SP_RESERVARCOLA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SP_VALIDARCOLA">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_VALIDARCOLA" message="tns:IService1_SP_VALIDARCOLA_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_VALIDARCOLAResponse" message="tns:IService1_SP_VALIDARCOLA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SP_LISTARNOTIFICACIONESXUSUARIO">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SP_LISTARNOTIFICACIONESXUSUARIO" message="tns:IService1_SP_LISTARNOTIFICACIONESXUSUARIO_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SP_LISTARNOTIFICACIONESXUSUARIOResponse" message="tns:IService1_SP_LISTARNOTIFICACIONESXUSUARIO_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -126,8 +166,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SP_VALIDARRESERVA">
-      <soap:operation soapAction="http://tempuri.org/IService1/SP_VALIDARRESERVA" style="document" />
+    <wsdl:operation name="SP_VALIDARRESERVAXLIBRO">
+      <soap:operation soapAction="http://tempuri.org/IService1/SP_VALIDARRESERVAXLIBRO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SP_VALIDARRESERVAXUSUARIOXLIBRO">
+      <soap:operation soapAction="http://tempuri.org/IService1/SP_VALIDARRESERVAXUSUARIOXLIBRO" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -137,6 +186,33 @@
     </wsdl:operation>
     <wsdl:operation name="SP_BUSCARLIBROXCODE">
       <soap:operation soapAction="http://tempuri.org/IService1/SP_BUSCARLIBROXCODE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SP_RESERVARCOLA">
+      <soap:operation soapAction="http://tempuri.org/IService1/SP_RESERVARCOLA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SP_VALIDARCOLA">
+      <soap:operation soapAction="http://tempuri.org/IService1/SP_VALIDARCOLA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SP_LISTARNOTIFICACIONESXUSUARIO">
+      <soap:operation soapAction="http://tempuri.org/IService1/SP_LISTARNOTIFICACIONESXUSUARIO" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

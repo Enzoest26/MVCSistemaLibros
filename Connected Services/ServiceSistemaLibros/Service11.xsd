@@ -69,17 +69,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SP_VALIDARRESERVA">
+  <xs:element name="SP_VALIDARRESERVAXLIBRO">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SP_VALIDARRESERVAResponse">
+  <xs:element name="SP_VALIDARRESERVAXLIBROResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="SP_VALIDARRESERVAResult" type="xs:int" />
+        <xs:element minOccurs="0" name="SP_VALIDARRESERVAXLIBROResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SP_VALIDARRESERVAXUSUARIOXLIBRO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUser" type="xs:int" />
+        <xs:element minOccurs="0" name="varCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SP_VALIDARRESERVAXUSUARIOXLIBROResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SP_VALIDARRESERVAXUSUARIOXLIBROResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -94,6 +109,48 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCFServicioLibreria" minOccurs="0" name="SP_BUSCARLIBROXCODEResult" nillable="true" type="q6:Book" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SP_RESERVARCOLA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUser" type="xs:int" />
+        <xs:element minOccurs="0" name="idBook" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SP_RESERVARCOLAResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SP_VALIDARCOLA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUser" type="xs:int" />
+        <xs:element minOccurs="0" name="idBook" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SP_VALIDARCOLAResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SP_VALIDARCOLAResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SP_LISTARNOTIFICACIONESXUSUARIO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUser" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SP_LISTARNOTIFICACIONESXUSUARIOResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCFServicioLibreria" minOccurs="0" name="SP_LISTARNOTIFICACIONESXUSUARIOResult" nillable="true" type="q7:ArrayOfMensajeNotificacion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
